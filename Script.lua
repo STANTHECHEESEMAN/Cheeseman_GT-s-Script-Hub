@@ -11167,6 +11167,9 @@ end)()
 Main.Init()
 end)
 
+UtmmSection:NewButton("Load Aimbot", "Loads the only working Aimbot that I could find.", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Aimbot%20V2%20GUI.lua"))()
+end)
 
 local UtmmTab = Window:NewTab("UTMM Kit Games")
 local UtmmSection = UtmmTab:NewSection("Glitchy")
