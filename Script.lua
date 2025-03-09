@@ -11231,7 +11231,7 @@ UtmmSection:NewButton("All Weapons", "Click button in top left of weapon menu to
     for i,v in pairs(game.Players.LocalPlayer.Weapons:GetChildren()) do v.Value = true end
 end)
 
-local NdsTab = Window:NewTab("Natural Disaster Survival")
+local NdsTab = Window:NewTab("Natural Disaster")
 local NdsSection = NdsTab:NewSection("Load")
 NdsSection:NewButton("Load Invert Gravity", "Loads an Invert Gravity Gui I found.", function()
 local naturalDisasterSurvivalGravityInversionGui = Instance.new("ScreenGui")
