@@ -11175,40 +11175,8 @@ UniSection:NewButton("Load GhostHub", "Loads GhostHub (Has some pretty cool shit
 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
 end)
 
-local UniSection = UniTab:NewSection("Cool IG")
-UniSection:NewButton("Explode", "Cooler Reset.", function()
-local player = game.Players.LocalPlayer
-local gui = Instance.new("ScreenGui")
-local button = Instance.new("TextButton")
-local reset = Instance.new("TextButton")
- 
-gui.Name = "Hackor Gui"
-gui.Parent = player.PlayerGui
-reset.Position = UDim2.new(0,0, 0,450)
-reset.Size = UDim2.new(0,100, 0,50)
-reset.Text = "Reset"
-reset.Parent = gui
-reset.Style = Enum.ButtonStyle.RobloxRoundButton
-reset.TextScaled = true
-button.Parent = gui
-button.Style = Enum.ButtonStyle.RobloxRoundButton
-button.Text = "Explode!"
-button.TextScaled = true
-button.Size = UDim2.new(0,150, 0,150)
-button.Position = UDim2.new(0,0, 0,260)
- 
-button.MouseButton1Click:Connect(function()
-	local ply = game.Players.LocalPlayer
-	local explode = Instance.new("Explosion")
-	explode.Position = ply.Character.HumanoidRootPart.Position
-	explode.Parent = workspace
-end)
- 
-reset.MouseButton1Click:Connect(function()
-	player.Character.Humanoid.Health = 0
-end)
-end)
 
+	
 local UtmmTab = Window:NewTab("UTMM Kit Games")
 local UtmmSection = UtmmTab:NewSection("Glitchy")
 
