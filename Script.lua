@@ -11171,6 +11171,10 @@ UniSection:NewButton("Load Aimbot", "Loads the only working Aimbot that I could 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Aimbot%20V2%20GUI.lua"))()
 end)
 
+UniSection:NewButton("Load GhostHub", "Loads GhostHub (Has some pretty cool shit ngl)", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+end)
+
 local UtmmTab = Window:NewTab("UTMM Kit Games")
 local UtmmSection = UtmmTab:NewSection("Glitchy")
 
