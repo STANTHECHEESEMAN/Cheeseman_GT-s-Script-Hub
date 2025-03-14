@@ -11400,3 +11400,12 @@ updateUIScale()
  
 naturalDisasterSurvivalGravityInversionGui.Parent = game:GetService("CoreGui")
 end)
+
+local BabftTab = Window:NewTab("BABFT")
+local BabftSection = BabftTab:NewSection("Load")
+BabftSection:NewButton("Load BoatBuilderHub", "Has the best autobuild IMO.", function()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/catblox1346/StensUIReMake/refs/heads/main/Script/BoatBuilderHub"),true))()
+end)
+BabftSection:NewButton("Load Asu's Babft Script", "No Name, Has the best autofarm IMO.", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/TheRealAsu/BABFT/refs/heads/main/Jan25_Source.lua'))()
+end)
