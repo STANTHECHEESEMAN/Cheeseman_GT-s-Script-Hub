@@ -8,6 +8,22 @@ local colors = {
     ElementColor = Color3.fromRGB(0, 0, 0)
 }
 
+local TextChatService = game:GetService("TextChatService")
+
+local channels = TextChatService:WaitForChild("TextChannels")
+local general = channels:WaitForChild("RBXGeneral")
+
+general:SendAsync("Sometimes, I dream about cheese")
+
+local SoundService = game:GetService("SoundService")
+
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://1976677462
+sound.Volume = 1
+sound.Parent = SoundService
+
+sound:Play()
+
 local Window = Library.CreateLib("Cheeseman_GT's Script Hub", colors)
 
 local UniTab = Window:NewTab("Universal")
