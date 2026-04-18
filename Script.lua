@@ -14943,6 +14943,17 @@ if not iscg then
 end
 end)
 
+UniSection:NewButton("Load Smooth Camera", "Loads Smooth Camera.", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Smooth-Camera-41321"))()
+end)
+
+UniSection:NewButton("Load Punching Gui", "Loads a Punching Gui.", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/platinww/CrustyMain/refs/heads/main/universal/DropKick.lua"))()
+end)
+
+UniSection:NewButton("Load Invincible Flight", "Loads Flight Of The Invincible.", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-flight-of-the-Invincible-59729"))()
+end)
 
 	
 local UtmmTab = Window:NewTab("UTMM Kit Games")
