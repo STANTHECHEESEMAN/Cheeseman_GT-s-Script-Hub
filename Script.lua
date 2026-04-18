@@ -1,3 +1,19 @@
+local TextChatService = game:GetService("TextChatService")
+local SoundService = game:GetService("SoundService")
+
+local channels = TextChatService:WaitForChild("TextChannels")
+local general = channels:WaitForChild("RBXGeneral")
+general:SendAsync("Sometimes, I dream about cheese")
+
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://1976677462"
+sound.Volume = 1
+sound.Parent = SoundService
+
+sound:Play()
+
+
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
 local colors = {
@@ -7,22 +23,6 @@ local colors = {
     TextColor = Color3.fromRGB(0,255,0),
     ElementColor = Color3.fromRGB(0, 0, 0)
 }
-
-local TextChatService = game:GetService("TextChatService")
-
-local channels = TextChatService:WaitForChild("TextChannels")
-local general = channels:WaitForChild("RBXGeneral")
-
-general:SendAsync("Sometimes, I dream about cheese")
-
-local SoundService = game:GetService("SoundService")
-
-local sound = Instance.new("Sound")
-sound.SoundId = "rbxassetid://1976677462
-sound.Volume = 1
-sound.Parent = SoundService
-
-sound:Play()
 
 local Window = Library.CreateLib("Cheeseman_GT's Script Hub", colors)
 
