@@ -14955,6 +14955,10 @@ UniSection:NewButton("Load Invincible Flight", "Loads Flight Of The Invincible."
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-flight-of-the-Invincible-59729"))()
 end)
 
+UniSection:NewButton("Load Quiz Gui", "Loads a cool quiz gui that lets people do quizes in chat.", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Quit-Bot-57146"))()
+end)
+
 	
 local UtmmTab = Window:NewTab("UTMM Kit Games")
 local UtmmSection = UtmmTab:NewSection("Glitchy")
