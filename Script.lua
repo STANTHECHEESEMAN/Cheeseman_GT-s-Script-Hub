@@ -14991,7 +14991,7 @@ while true do
             end
         end
     end
-    wait(0.01) -- Adjust the wait time as needed
+    wait(0.05) -- Adjust the wait time as needed
 end
 end)
 
