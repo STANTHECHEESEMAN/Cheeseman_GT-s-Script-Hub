@@ -62,7 +62,7 @@ TitleLabel.Parent = TitleBar
 TitleLabel.Size = UDim2.new(1, -70, 1, 0)
 TitleLabel.Position = UDim2.new(0, 10, 0, 0)
 TitleLabel.BackgroundTransparency = 1
-TitleLabel.Text = "Cool Ball Menu"
+TitleLabel.Text = "Cool Ball GUI"
 TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TitleLabel.Font = Enum.Font.SourceSansBold
 TitleLabel.TextSize = 14
@@ -329,17 +329,16 @@ AButton.MouseButton1Down:Connect(function() ApplyMobileMovement(-Camera.CFrame.L
 SButton.MouseButton1Down:Connect(function() ApplyMobileMovement(Camera.CFrame.RightVector) end)
 DButton.MouseButton1Down:Connect(function() ApplyMobileMovement(Camera.CFrame.LookVector) end)
 
--- Jump loop tracking hooks
+-- ALWAYS-ACTIVE CUSTOM JUMP MECHANIC (Allows tapping Spacebar to jump at all times in mid-air if Ball Mode is ON)
 if jumpConnection then jumpConnection:Disconnect() end
-jumpConnection = UserInputService.JumpRequest:Connect(function()
+jumpConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
+	if gameProcessed then return end
 	if not ball or not IS_BALL_ENABLED then return end
-	local result = workspace:Raycast(
-		ball.Position,
-		Vector3.new(0, -((ball.Size.Y / 2) + JUMP_GAP), 0),
-		params
-	)
-	if result then
-		ball.Velocity = ball.Velocity + Vector3.new(0, JUMP_POWER, 0)
+	
+	-- Checks if spacebar was tapped (does not register holding down continuously)
+	if input.KeyCode == Enum.KeyCode.Space then
+		-- Directly updates velocity to force a jump regardless of Raycast floor tracking
+		ball.Velocity = Vector3.new(ball.Velocity.X, JUMP_POWER, ball.Velocity.Z)
 	end
 end)
 
