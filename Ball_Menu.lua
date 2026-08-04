@@ -36,7 +36,7 @@ MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 2
 MainFrame.Position = UDim2.new(0.0837606788, 0, 0.317955106, 0)
-MainFrame.Size = UDim2.new(0, 254, 0, 340) -- Height adjusted for new Title Bar spacing
+MainFrame.Size = UDim2.new(0, 254, 0, 340) 
 MainFrame.Active = true
 
 -- WINDOWS STYLE TITLE BAR (The Drag Handle & Separator)
@@ -99,7 +99,7 @@ local ContentFrame = Instance.new("ImageLabel")
 ContentFrame.Name = "ContentFrame"
 ContentFrame.Parent = MainFrame
 ContentFrame.Size = UDim2.new(1, 0, 1, -30)
-ContentFrame.Position = UDim2.new(0, 0, 0, 30) -- Starts right below title bar
+ContentFrame.Position = UDim2.new(0, 0, 0, 30) 
 ContentFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ContentFrame.BorderSizePixel = 0
 ContentFrame.Image = "http://roblox.com"
@@ -221,10 +221,10 @@ end)
 MinimizeButton.MouseButton1Down:Connect(function()
 	ContentFrame.Visible = not ContentFrame.Visible
 	if ContentFrame.Visible then
-		MainFrame.Size = UDim2.new(0, 254, 0, 340) -- Full size bounds
+		MainFrame.Size = UDim2.new(0, 254, 0, 340) 
 		MinimizeButton.Text = "-"
 	else
-		MainFrame.Size = UDim2.new(0, 254, 0, 30)  -- Collapsed Windows-style top-bar height
+		MainFrame.Size = UDim2.new(0, 254, 0, 30)  
 		MinimizeButton.Text = "+"
 	end
 end)
@@ -273,14 +273,12 @@ InitializeBallPhysics = function(char)
 	ball = character:WaitForChild("HumanoidRootPart")
 	humanoid = character:WaitForChild("Humanoid")
 	
-	-- Stop activation sequence mid-way if cheat configuration engine is turned off
 	if not IS_BALL_ENABLED then return end
 
-	-- Strip collision properties
+	-- Strips collision states from body meshes without touching any transparency properties
 	for _, v in ipairs(character:GetDescendants()) do
 		if v:IsA("BasePart") then
 			v.CanCollide = false
-			v.Transparency = 0
 		end
 	end
 
@@ -288,7 +286,8 @@ InitializeBallPhysics = function(char)
 	ball.Shape = Enum.PartType.Ball
 	ball.Material = Enum.Material.SmoothPlastic
 	ball.Size = Vector3.new(BALL_SIZE, BALL_SIZE, BALL_SIZE)
-	ball.Transparency = 0.75
+	-- Translucent ball texture wrapper overlays normally over unchanged character elements
+	ball.Transparency = 0.75 
 
 	params.FilterDescendantsInstances = {character}
 	Camera.CameraSubject = ball
@@ -335,9 +334,7 @@ jumpConnection = UserInputService.InputBegan:Connect(function(input, gameProcess
 	if gameProcessed then return end
 	if not ball or not IS_BALL_ENABLED then return end
 	
-	-- Checks if spacebar was tapped (does not register holding down continuously)
 	if input.KeyCode == Enum.KeyCode.Space then
-		-- Directly updates velocity to force a jump regardless of Raycast floor tracking
 		ball.Velocity = Vector3.new(ball.Velocity.X, JUMP_POWER, ball.Velocity.Z)
 	end
 end)
