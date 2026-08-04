@@ -14975,6 +14975,14 @@ UniSection:NewButton("Load Quiz Gui", "Loads a cool quiz gui that lets people do
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Quit-Bot-57146"))()
 end)
 
+UniSection:NewButton("Load FE Jerk It", "Loads an "interesting" animation item.", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Quit-Bot-57146"))()
+end)
+
+UniSection:NewButton("Load Ball Animation", "Loads an advanced gui that lets you well, turn into a ball.", function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Quit-Bot-57146"))()
+end)
+
 	
 local UtmmTab = Window:NewTab("UTMM Kit Games")
 local UtmmSection = UtmmTab:NewSection("Glitchy")
