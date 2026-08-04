@@ -14975,8 +14975,12 @@ UniSection:NewButton("Load Quiz Gui", "Loads a cool quiz gui that lets people do
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Quit-Bot-57146"))()
 end)
 
-UniSection:NewButton("Load FE Jerk It", "Loads an "interesting" animation item.", function()
-loadstring(game:HttpGet("loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()"))()
+UniSection:NewButton("Load FE Jerk It R6", "Loads an interesting animation item. R6", function()
+loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+end)
+
+UniSection:NewButton("Load FE Jerk It R15", "Loads an interesting animation item. R15", function()
+loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
 end)
 
 UniSection:NewButton("Load Ball Animation", "Loads an advanced gui that well, lets you become a ball.", function()
