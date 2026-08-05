@@ -1,7 +1,3 @@
--- [[ Mobile GUI by Melon ]] --
--- [[ Edited by Melon ]] -- 
--- [[ Created by ??? ]] --
-
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
