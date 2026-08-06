@@ -13,8 +13,10 @@ local DEFAULT_SPEED = 30
 local DEFAULT_SIZE = 5
 local DEFAULT_DENSITY = 0.7
 local DEFAULT_JUMP = 60
-local DEFAULT_MAX_ROLL = 100 
-local DEFAULT_MAX_RUN = 175  
+
+-- UPDATED: Baseline system conditions dynamically adapt to the target game ID check
+local DEFAULT_MAX_ROLL = IS_TARGET_GAME and 8 or 100 -- Set to 8 if target game is true, otherwise 100
+local DEFAULT_MAX_RUN = 10.5                         -- Set baseline max run speed default directly to 10.5
 
 -- Customizable Configuration Vars (modified via UI)
 local SPEED_MULTIPLIER = DEFAULT_SPEED
@@ -212,14 +214,12 @@ local function FormatSetting(label, box, parent, text, posY, posX, sizeX, defaul
 	box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 end
 
--- FIXED: Absolute pixel-based Y layouts mapping items from top-down cleanly
 FormatSetting(SpeedLabel, SpeedInput, ContentFrame, "Movement Speed", 165, 10, 110, SPEED_MULTIPLIER)
 FormatSetting(SizeLabel, SizeInput, ContentFrame, "Ball Size", 165, 134, 110, BALL_SIZE)
 FormatSetting(WeightLabel, WeightInput, ContentFrame, "Ball Weight", 215, 10, 110, BALL_DENSITY)
 FormatSetting(JumpLabel, JumpInput, ContentFrame, "Jump Power", 215, 134, 110, JUMP_POWER)
 FormatSetting(MaxRollLabel, MaxRollInput, ContentFrame, "Max Roll Speed", 265, 10, 234, MAX_ROLL_SPEED)
 
--- FIXED: Bottom options stacked cleanly using a guaranteed absolute coordinate sequence
 local nextY = 315
 if IS_TARGET_GAME then
 	FormatSetting(MaxRunLabel, MaxRunInput, ContentFrame, "Max Run Speed (Hold L-Shift)", 315, 10, 234, MAX_RUN_SPEED)
