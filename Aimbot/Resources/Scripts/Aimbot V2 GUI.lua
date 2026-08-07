@@ -293,6 +293,6 @@ FunctionsSection:AddButton({
 FunctionsSection:AddButton({
 	Name = "Copy Script Page",
 	Callback = function()
-		setclipboard("https://github.com/STANTHECHEESEMAN/Cheeseman_GT-s-Script-Hub/Aimbot")
+		setclipboard("https://github.com/STANTHECHEESEMAN/Cheeseman_GT-s-Script-Hub/tree/main/Aimbot")
 	end
 })
