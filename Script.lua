@@ -11183,10 +11183,8 @@ end)()
 Main.Init()
 end)
 
-UniSection:NewLabel("The Aimbot is working again, I had to reupload it.")
-
-UniSection:NewButton("Load Aimbot", "Loads the only working Aimbot that I could find.", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/STANTHECHEESEMAN/Cheeseman_GT-s-Script-Hub/main/Aimbot/Resources/Scripts/Aimbot%20V2%20GUI.lua"))()
+UniSection:NewButton("Load Aimbot", "Loads an alright Aimbot that works.", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/STANTHECHEESEMAN/Cheeseman_GT-s-Script-Hub/main/Aimbot.lua"))()
 end)
 
 UniSection:NewButton("Load Patchma Hub", "Loads Patchma Hub (Animation hub).", function()
