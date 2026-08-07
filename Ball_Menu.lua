@@ -14,9 +14,8 @@ local DEFAULT_SIZE = 5
 local DEFAULT_DENSITY = 0.7
 local DEFAULT_JUMP = 60
 
--- UPDATED: Baseline system conditions dynamically adapt to the target game ID check
-local DEFAULT_MAX_ROLL = IS_TARGET_GAME and 8 or 100 -- Set to 8 if target game is true, otherwise 100
-local DEFAULT_MAX_RUN = 10.5                         -- Set baseline max run speed default directly to 10.5
+local DEFAULT_MAX_ROLL = IS_TARGET_GAME and 8 or 100 
+local DEFAULT_MAX_RUN = 10.5                         
 
 -- Customizable Configuration Vars (modified via UI)
 local SPEED_MULTIPLIER = DEFAULT_SPEED
@@ -385,26 +384,29 @@ InitializeBallPhysics = function(char)
 		
 		if UserInputService:GetFocusedTextBox() then return end
 		
-		if UserInputService:IsKeyDown(Enum.KeyCode.W) then
-			ball.RotVelocity -= Camera.CFrame.RightVector * dt * SPEED_MULTIPLIER
-		end
-		if UserInputService:IsKeyDown(Enum.KeyCode.A) then
-			ball.RotVelocity -= Camera.CFrame.LookVector * dt * SPEED_MULTIPLIER
-		end
-		if UserInputService:IsKeyDown(Enum.KeyCode.S) then
-			ball.RotVelocity += Camera.CFrame.RightVector * dt * SPEED_MULTIPLIER
-		end
-		if UserInputService:IsKeyDown(Enum.KeyCode.D) then
-			ball.RotVelocity += Camera.CFrame.LookVector * dt * SPEED_MULTIPLIER
-		end
+		local movingW = UserInputService:IsKeyDown(Enum.KeyCode.W)
+		local movingA = UserInputService:IsKeyDown(Enum.KeyCode.A)
+		local movingS = UserInputService:IsKeyDown(Enum.KeyCode.S)
+		local movingD = UserInputService:IsKeyDown(Enum.KeyCode.D)
+
+		if movingW then ball.RotVelocity -= Camera.CFrame.RightVector * dt * SPEED_MULTIPLIER end
+		if movingA then ball.RotVelocity -= Camera.CFrame.LookVector * dt * SPEED_MULTIPLIER end
+		if movingS then ball.RotVelocity += Camera.CFrame.RightVector * dt * SPEED_MULTIPLIER end
+		if movingD then ball.RotVelocity += Camera.CFrame.LookVector * dt * SPEED_MULTIPLIER end
 
 		local activeMaxLimit = MAX_ROLL_SPEED
 
-		if IS_TARGET_GAME and UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then
+		-- FIXED: Only applies the Max Run Speed if LeftShift AND at least one WASD key is active
+		if IS_TARGET_GAME and UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) and (movingW or movingA or movingS or movingD) then
 			local isExhausted = character:GetAttribute("Exhausted")
 			if not isExhausted then
 				activeMaxLimit = MAX_RUN_SPEED
 			end
+		end
+
+		if IS_TARGET_GAME and character then
+			local speedMultAttribute = character:GetAttribute("SpeedMult") or 1
+			activeMaxLimit = activeMaxLimit * speedMultAttribute
 		end
 
 		if ball.RotVelocity.Magnitude > activeMaxLimit then
