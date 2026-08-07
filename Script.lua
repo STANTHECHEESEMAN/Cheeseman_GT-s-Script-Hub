@@ -11183,12 +11183,10 @@ end)()
 Main.Init()
 end)
 
-UniSection:NewButton("Load Aimbot", "Loads the only working Aimbot that I could find.", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Aimbot%20V2%20GUI.lua"))()
-end)
+UniSection:NewLabel("The Aimbot is working again, I had to reupload it.")
 
-UniSection:NewButton("Load GhostHub", "Loads GhostHub (Has some pretty cool shit ngl)", function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub'))()
+UniSection:NewButton("Load Aimbot", "Loads the only working Aimbot that I could find.", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/STANTHECHEESEMAN/Cheeseman_GT-s-Script-Hub/main/Aimbot/Resources/Scripts/Aimbot%20V2%20GUI.lua"))()
 end)
 
 UniSection:NewButton("Load Patchma Hub", "Loads Patchma Hub (Animation hub).", function()
